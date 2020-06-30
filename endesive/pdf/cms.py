@@ -407,8 +407,7 @@ class SignedData(pdf.PdfFileWriter):
         else:
             md = getattr(hashlib, algomd)().digest()
             contents = signer.sign(
-                None, key, cert, othercerts, algomd, True, md, hsm, False, timestampurl, timestampcredentials
-            )
+                None, key, cert, othercerts, algomd, True, md, hsm, False)
             zeros = contents.hex().encode("utf-8")
 
         self.makepdf(prev, udct, algomd, zeros)
